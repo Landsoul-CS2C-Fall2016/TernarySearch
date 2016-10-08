@@ -37,6 +37,7 @@ int ternary_search(const ArrayLike& arr, const T& value, int low, int high) {
       //ternary_search(arr, value, tripoint2 + 1, high);
       ternary_search(arr, value, tripoint2 + 1, high);
    } 
+   return -1;
 }
 
 template <typename ArrayLike, typename T>
