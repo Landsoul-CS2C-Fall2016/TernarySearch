@@ -1,5 +1,9 @@
 #pragma once
 
+template <typename ArrayLike, typename T>
+int ternary_search(const ArrayLike& arr, const T& value) {
+   return ternary_search(arr, value, 0, arr.data.size())
+}
 
 template <typename ArrayLike, typename T>
 int ternary_search(const ArrayLike& arr, const T& value, int low, int high) {
