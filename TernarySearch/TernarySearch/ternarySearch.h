@@ -9,8 +9,8 @@ template <typename ArrayLike, typename T>
 int ternary_search(const ArrayLike& arr, const T& value, int low, int high) {
    //make sure that a valid array is being searched.
    
-   int tripoint1 = ((high - low) / 3) + low; // will return a truncated 1/3 of arraysize
-   int tripoint2 = (((high - low) / 3) * 2) + low; // doubles that
+   int tripoint1 = ((high - low) / 3.0) + low; // will return a truncated 1/3 of arraysize
+   int tripoint2 = (((high - low) / 3.0) * 2) + low; // doubles that
    
    if (high < low)
    {
@@ -26,18 +26,18 @@ int ternary_search(const ArrayLike& arr, const T& value, int low, int high) {
    if (value < arr[tripoint1])
    {
       // ternary_search(arr, value, low, tripoint1 - 1);
-      ternary_search(arr, value, low, tripoint1 - 1);
+     return ternary_search(arr, value, low, tripoint1 - 1);
    }
    // 2nd third of whats left
    else if (value < arr[tripoint2]){
       //ternary_search(arr, value, tripoint1 + 1, tripoint2 - 1);
-      ternary_search(arr, value, tripoint1 + 1, tripoint2 - 1);
+      return ternary_search(arr, value, tripoint1 + 1, tripoint2 - 1);
       // last third of whats left
    } else {
       //ternary_search(arr, value, tripoint2 + 1, high);
-      ternary_search(arr, value, tripoint2 + 1, high);
+      return ternary_search(arr, value, tripoint2 + 1, high);
    } 
-   return -1;
+    return -1;
 }
 
 template <typename ArrayLike, typename T>
